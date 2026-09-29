@@ -145,6 +145,9 @@ strong { font-weight: 600; }
 .intro { padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: 1.75rem; }
 .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
 h1 { font: 650 clamp(2.6rem, 1.8rem + 3.6vw, 4rem)/1 var(--serif); letter-spacing: -0.015em; margin-bottom: 1.1rem; }
+/* hero lockup: mark to text as in brand/logo/hymn-logo.svg */
+h1.lockup { display: flex; align-items: center; gap: 0.33em; }
+h1.lockup .brand-mark { width: 1.8em; height: 1.8em; }
 h1 .expansion { display: block; font: 500 clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem)/1.3 var(--serif); letter-spacing: 0.01em; color: var(--ink-2); margin-top: 0.6rem; }
 .lead { font-size: clamp(1.08rem, 1rem + 0.35vw, 1.22rem); line-height: 1.55; max-width: 64ch; color: var(--ink); }
 .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }

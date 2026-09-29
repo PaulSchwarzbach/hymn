@@ -49,8 +49,9 @@ python tools/make_og.py --social              # GitHub social previews -> _src/s
 
 After a logo change, copy `brand/logo/hymn-icon.svg` to `assets/img/favicon.svg`,
 `brand/logo/apple-touch-icon.png` to `assets/img/`, paste
-`brand/logo/hymn-mark-inline.svg` into the `.brand` link of `index.html`, and
-rerun `make_og.py`.
+`brand/logo/hymn-mark-inline.svg` into the `.brand` link and the `h1` of
+`index.html`, raise the `?v=` suffix of both icon links in `<head>` so browsers
+drop their cached icon, and rerun `make_og.py`.
 
 ## Updating
 
@@ -91,7 +92,7 @@ below. Paths are relative to the local project folders.
 | `assets/fig/ipin-ecdf-fused.svg` | `hymn-localization/Paper/fig/ecdf_fused.pdf` | IPIN 2026 Fig. 3 |
 | `assets/fig/icra-ecdf-residuals.svg` | `ICRA/figures/paper_fig3_ecdf.pdf` | ICRA 2026 WS Fig. 5 |
 | `assets/fig/plans-position-errors.svg` | `ION_IEEE_PLANS_2025_Full_Paper.pdf`, p. 10, vector crop | PLANS 2025 Fig. 14 |
-| header mark in `index.html` | `brand/logo/hymn-mark-inline.svg`, colours from the CSS tokens | none |
+| topbar and hero mark in `index.html` | `brand/logo/hymn-mark-inline.svg`, colours from the CSS tokens | none |
 | `assets/img/favicon.svg`, `assets/img/apple-touch-icon.png` | copies of `brand/logo/hymn-icon.svg` and `brand/logo/apple-touch-icon.png` | none |
 | `assets/img/og-image.png` | `tools/make_og.py` from `brand/logo/hymn-logo.svg` and the site map | none |
 
