@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HYMN · Multi-technology positioning dataset</title>
+<meta name="description" content="HYMN is a time-synchronised dataset of UWB, BLE, WiFi FTM, 5G NR and GNSS measurements with total-station ground truth, recorded in an industrial hall with an indoor-outdoor transition. Dataset, publications, code and citations.">
+<meta name="author" content="Paul Schwarzbach">
+<link rel="canonical" href="https://paulschwarzbach.github.io/hymn/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HYMN · Multi-technology positioning dataset">
+<meta property="og:description" content="UWB, BLE, WiFi FTM, 5G NR and GNSS measurements with total-station ground truth across an indoor-outdoor transition. Dataset, publications, code and citations.">
+<meta property="og:url" content="https://paulschwarzbach.github.io/hymn/">
+<meta property="og:image" content="https://paulschwarzbach.github.io/hymn/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "HYMN: HYbrid Multi-technology Navigation dataset",
+  "description": "Time-synchronised measurements of UWB, BLE, WiFi FTM, 5G NR and GNSS recorded at 48 static reference points in an industrial hall with an indoor-outdoor transition, with total-station ground truth for all reference points and infrastructure devices.",
+  "url": "https://paulschwarzbach.github.io/hymn/",
+  "identifier": "https://doi.org/10.5281/zenodo.17979434",
+  "sameAs": ["https://doi.org/10.5281/zenodo.17979434", "https://github.com/TUD-ITVS/HYMN-dataset"],
+  "citation": "https://doi.org/10.1109/IEEEDATA.2026.3691044",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": true,
+  "keywords": ["indoor positioning", "indoor-outdoor transition", "UWB", "BLE", "WiFi FTM", "5G NR", "GNSS", "multi-sensor fusion", "radio localization dataset"],
+  "temporalCoverage": "2024-10-23",
+  "spatialCoverage": {"@type": "Place", "name": "Torgau, Germany", "geo": {"@type": "GeoCoordinates", "latitude": 51.5705, "longitude": 13.0032}},
+  "creator": [
+    {"@type": "Person", "name": "Muhammad Ammad", "sameAs": "https://orcid.org/0009-0007-2720-8433"},
+    {"@type": "Person", "name": "Albrecht Michler", "sameAs": "https://orcid.org/0000-0002-3434-3488"},
+    {"@type": "Person", "name": "Paul Schwarzbach", "sameAs": "https://orcid.org/0000-0002-1091-782X"},
+    {"@type": "Person", "name": "Jonas Ninnemann", "sameAs": "https://orcid.org/0000-0001-7988-079X"},
+    {"@type": "Person", "name": "Hagen Ußler", "sameAs": "https://orcid.org/0009-0001-2212-6590"},
+    {"@type": "Person", "name": "Oliver Michler", "sameAs": "https://orcid.org/0000-0002-8599-5304"}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <nav class="wrap topnav" aria-label="Sections">
+    <a class="brand" href="#top">HYMN</a>
+    <ul>
+      <li><a href="#dataset">Dataset</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#code">Code &amp; data</a></li>
+      <li><a href="#cite">Cite</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="wrap intro" id="top">
+  <p class="eyebrow">Radio positioning dataset and studies</p>
+  <h1>HYMN <span class="expansion">HYbrid Multi-technology Navigation</span></h1>
+  <p class="lead">HYMN is a time-synchronised measurement dataset of UWB, BLE, WiFi FTM, 5G NR and GNSS, recorded against total-station ground truth in an industrial hall whose open gates create an indoor-outdoor transition. This page collects the dataset and the studies built on it.</p>
+  <p class="actions">
+    <a class="btn btn-primary" href="https://doi.org/10.1109/IEEEDATA.2026.3691044">Descriptor paper</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.17979434">Dataset on Zenodo</a>
+    <a class="btn" href="https://github.com/TUD-ITVS/HYMN-dataset">GitHub</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20058106">Benchmark code</a>
+  </p>
+</section>
+
+<section class="wrap hero" aria-label="Campaign overview">
+  <figure class="map-figure">
+    <div class="map-legend">
+      <ul class="key">
+        <li><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><circle class="k-hall" r="4.2"/></svg>hall grid</li>
+        <li><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><circle class="k-gate" r="4.2"/></svg>driveway, inside</li>
+        <li><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><circle class="k-out" r="4.2"/><circle class="k-dot" r="1.5"/></svg>driveway, outside</li>
+        <li><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><circle class="k-ts" r="4.6"/><path class="k-ts" d="M-4.6 0H4.6M0 -4.6V4.6"/></svg>total station</li>
+      </ul>
+      <div class="layers" role="group" aria-label="Show or hide infrastructure" hidden>
+        <button type="button" data-layer="uwb" aria-pressed="true"><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><polygon class="k-uwb" points="0,-5.5 5,3.8 -5,3.8"/></svg>UWB</button>
+        <button type="button" data-layer="ble" aria-pressed="true"><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><polygon class="k-ble" points="0,-5 5,0 0,5 -5,0"/></svg>BLE</button>
+        <button type="button" data-layer="wifi" aria-pressed="true"><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><rect class="k-wifi" x="-4" y="-4" width="8" height="8" rx="1"/></svg>WiFi FTM</button>
+        <button type="button" data-layer="nr5g" aria-pressed="true"><svg class="sw" viewBox="-6 -6 12 12" aria-hidden="true"><polygon class="k-nr5g" points="5,0 2.5,4.3 -2.5,4.3 -5,0 -2.5,-4.3 2.5,-4.3"/></svg>5G NR</button>
+      </div>
+    </div>
+    <div class="map-wrap">
+<!-- SITEMAP:START -->
+<svg class="sitemap" viewBox="-11 -25 52 42" role="img" aria-labelledby="sitemap-title sitemap-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="sitemap-title">HYMN campaign layout on an orthophoto</title>
+<desc id="sitemap-desc">Reference points and infrastructure of the HYMN campaign in the local frame of the dataset, drawn over the GeoSN orthophoto of the site. The hall extends to the right, the driveway crosses it near the left edge, and six reference points lie on the driveway outside the gates.</desc>
+<image href="assets/img/site-ortho.webp" x="-11" y="-25" width="52" height="42" preserveAspectRatio="none"/>
+<rect class="sm-veil" x="-11" y="-25" width="52" height="42"/>
+<g class="sm-points">
+<g class="sm-pt sm-pt-gate" data-tip="A01B1 · driveway row inside the hall · x -10.83 m, y -3.07 m"><title>A01B1 · driveway row inside the hall · x -10.83 m, y -3.07 m</title><circle class="sm-hit" cx="-3.07" cy="-10.83" r="1.1"/><circle cx="-3.07" cy="-10.83" r="0.6"/></g>
+<g class="sm-pt sm-pt-gate" data-tip="A01B2 · driveway row inside the hall · x -7.81 m, y -3.06 m"><title>A01B2 · driveway row inside the hall · x -7.81 m, y -3.06 m</title><circle class="sm-hit" cx="-3.06" cy="-7.81" r="1.1"/><circle cx="-3.06" cy="-7.81" r="0.6"/></g>
+<g class="sm-pt sm-pt-gate" data-tip="A01B3 · driveway row inside the hall · x -4.84 m, y -3.08 m"><title>A01B3 · driveway row inside the hall · x -4.84 m, y -3.08 m</title><circle class="sm-hit" cx="-3.08" cy="-4.84" r="1.1"/><circle cx="-3.08" cy="-4.84" r="0.6"/></g>
+<g class="sm-pt sm-pt-gate" data-tip="A01B4 · driveway row inside the hall · x -1.84 m, y -3.10 m"><title>A01B4 · driveway row inside the hall · x -1.84 m, y -3.10 m</title><circle class="sm-hit" cx="-3.1" cy="-1.84" r="1.1"/><circle cx="-3.1" cy="-1.84" r="0.6"/></g>
+<g class="sm-pt sm-pt-gate" data-tip="A01B5 · driveway row inside the hall · x 1.18 m, y -3.08 m"><title>A01B5 · driveway row inside the hall · x 1.18 m, y -3.08 m</title><circle class="sm-hit" cx="-3.08" cy="1.18" r="1.1"/><circle cx="-3.08" cy="1.18" r="0.6"/></g>
+<g class="sm-pt sm-pt-gate" data-tip="A01B6 · driveway row inside the hall · x 4.16 m, y -3.07 m"><title>A01B6 · driveway row inside the hall · x 4.16 m, y -3.07 m</title><circle class="sm-hit" cx="-3.07" cy="4.16" r="1.1"/><circle cx="-3.07" cy="4.16" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A02B2 · hall grid · x -7.87 m, y -0.03 m"><title>A02B2 · hall grid · x -7.87 m, y -0.03 m</title><circle class="sm-hit" cx="-0.03" cy="-7.87" r="1.1"/><circle cx="-0.03" cy="-7.87" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A02B4 · hall grid · x -1.86 m, y -0.04 m"><title>A02B4 · hall grid · x -1.86 m, y -0.04 m</title><circle class="sm-hit" cx="-0.04" cy="-1.86" r="1.1"/><circle cx="-0.04" cy="-1.86" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A02B6 · hall grid · x 4.10 m, y -0.04 m"><title>A02B6 · hall grid · x 4.10 m, y -0.04 m</title><circle class="sm-hit" cx="-0.04" cy="4.1" r="1.1"/><circle cx="-0.04" cy="4.1" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A03B1 · hall grid · x -10.87 m, y 3.01 m"><title>A03B1 · hall grid · x -10.87 m, y 3.01 m</title><circle class="sm-hit" cx="3.01" cy="-10.87" r="1.1"/><circle cx="3.01" cy="-10.87" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A03B3 · hall grid · x -4.88 m, y 2.99 m"><title>A03B3 · hall grid · x -4.88 m, y 2.99 m</title><circle class="sm-hit" cx="2.99" cy="-4.88" r="1.1"/><circle cx="2.99" cy="-4.88" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A03B5 · hall grid · x 1.15 m, y 2.96 m"><title>A03B5 · hall grid · x 1.15 m, y 2.96 m</title><circle class="sm-hit" cx="2.96" cy="1.15" r="1.1"/><circle cx="2.96" cy="1.15" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A04B2 · hall grid · x -7.89 m, y 5.98 m"><title>A04B2 · hall grid · x -7.89 m, y 5.98 m</title><circle class="sm-hit" cx="5.98" cy="-7.89" r="1.1"/><circle cx="5.98" cy="-7.89" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A04B4 · hall grid · x -1.88 m, y 6.00 m"><title>A04B4 · hall grid · x -1.88 m, y 6.00 m</title><circle class="sm-hit" cx="6" cy="-1.88" r="1.1"/><circle cx="6" cy="-1.88" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A04B6 · hall grid · x 4.16 m, y 5.80 m"><title>A04B6 · hall grid · x 4.16 m, y 5.80 m</title><circle class="sm-hit" cx="5.8" cy="4.16" r="1.1"/><circle cx="5.8" cy="4.16" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A05B1 · hall grid · x -10.88 m, y 9.06 m"><title>A05B1 · hall grid · x -10.88 m, y 9.06 m</title><circle class="sm-hit" cx="9.06" cy="-10.88" r="1.1"/><circle cx="9.06" cy="-10.88" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A05B3 · hall grid · x -4.87 m, y 8.97 m"><title>A05B3 · hall grid · x -4.87 m, y 8.97 m</title><circle class="sm-hit" cx="8.97" cy="-4.87" r="1.1"/><circle cx="8.97" cy="-4.87" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A05B5 · hall grid · x 1.15 m, y 8.95 m"><title>A05B5 · hall grid · x 1.15 m, y 8.95 m</title><circle class="sm-hit" cx="8.95" cy="1.15" r="1.1"/><circle cx="8.95" cy="1.15" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A06B2 · hall grid · x -7.92 m, y 11.93 m"><title>A06B2 · hall grid · x -7.92 m, y 11.93 m</title><circle class="sm-hit" cx="11.93" cy="-7.92" r="1.1"/><circle cx="11.93" cy="-7.92" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A06B4 · hall grid · x -1.92 m, y 11.94 m"><title>A06B4 · hall grid · x -1.92 m, y 11.94 m</title><circle class="sm-hit" cx="11.94" cy="-1.92" r="1.1"/><circle cx="11.94" cy="-1.92" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A06B6 · hall grid · x 4.08 m, y 11.84 m"><title>A06B6 · hall grid · x 4.08 m, y 11.84 m</title><circle class="sm-hit" cx="11.84" cy="4.08" r="1.1"/><circle cx="11.84" cy="4.08" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A07B1 · hall grid · x -10.90 m, y 14.81 m"><title>A07B1 · hall grid · x -10.90 m, y 14.81 m</title><circle class="sm-hit" cx="14.81" cy="-10.9" r="1.1"/><circle cx="14.81" cy="-10.9" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A07B3 · hall grid · x -4.89 m, y 14.91 m"><title>A07B3 · hall grid · x -4.89 m, y 14.91 m</title><circle class="sm-hit" cx="14.91" cy="-4.89" r="1.1"/><circle cx="14.91" cy="-4.89" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A07B5 · hall grid · x 1.12 m, y 14.94 m"><title>A07B5 · hall grid · x 1.12 m, y 14.94 m</title><circle class="sm-hit" cx="14.94" cy="1.12" r="1.1"/><circle cx="14.94" cy="1.12" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A08B1 · hall grid · x -10.89 m, y 17.91 m"><title>A08B1 · hall grid · x -10.89 m, y 17.91 m</title><circle class="sm-hit" cx="17.91" cy="-10.89" r="1.1"/><circle cx="17.91" cy="-10.89" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A08B3 · hall grid · x -4.88 m, y 17.95 m"><title>A08B3 · hall grid · x -4.88 m, y 17.95 m</title><circle class="sm-hit" cx="17.95" cy="-4.88" r="1.1"/><circle cx="17.95" cy="-4.88" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A08B5 · hall grid · x 1.11 m, y 17.98 m"><title>A08B5 · hall grid · x 1.11 m, y 17.98 m</title><circle class="sm-hit" cx="17.98" cy="1.11" r="1.1"/><circle cx="17.98" cy="1.11" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A09B2 · hall grid · x -7.84 m, y 20.92 m"><title>A09B2 · hall grid · x -7.84 m, y 20.92 m</title><circle class="sm-hit" cx="20.92" cy="-7.84" r="1.1"/><circle cx="20.92" cy="-7.84" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A09B4 · hall grid · x -1.84 m, y 20.91 m"><title>A09B4 · hall grid · x -1.84 m, y 20.91 m</title><circle class="sm-hit" cx="20.91" cy="-1.84" r="1.1"/><circle cx="20.91" cy="-1.84" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A09B6 · hall grid · x 3.83 m, y 20.95 m"><title>A09B6 · hall grid · x 3.83 m, y 20.95 m</title><circle class="sm-hit" cx="20.95" cy="3.83" r="1.1"/><circle cx="20.95" cy="3.83" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A10B1 · hall grid · x -10.79 m, y 23.89 m"><title>A10B1 · hall grid · x -10.79 m, y 23.89 m</title><circle class="sm-hit" cx="23.89" cy="-10.79" r="1.1"/><circle cx="23.89" cy="-10.79" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A10B3 · hall grid · x -4.86 m, y 23.89 m"><title>A10B3 · hall grid · x -4.86 m, y 23.89 m</title><circle class="sm-hit" cx="23.89" cy="-4.86" r="1.1"/><circle cx="23.89" cy="-4.86" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A10B5 · hall grid · x 1.14 m, y 23.93 m"><title>A10B5 · hall grid · x 1.14 m, y 23.93 m</title><circle class="sm-hit" cx="23.93" cy="1.14" r="1.1"/><circle cx="23.93" cy="1.14" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A11B2 · hall grid · x -7.92 m, y 26.87 m"><title>A11B2 · hall grid · x -7.92 m, y 26.87 m</title><circle class="sm-hit" cx="26.87" cy="-7.92" r="1.1"/><circle cx="26.87" cy="-7.92" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A11B4 · hall grid · x -1.91 m, y 26.91 m"><title>A11B4 · hall grid · x -1.91 m, y 26.91 m</title><circle class="sm-hit" cx="26.91" cy="-1.91" r="1.1"/><circle cx="26.91" cy="-1.91" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A11B6 · hall grid · x 4.09 m, y 27.00 m"><title>A11B6 · hall grid · x 4.09 m, y 27.00 m</title><circle class="sm-hit" cx="27" cy="4.09" r="1.1"/><circle cx="27" cy="4.09" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A12B1 · hall grid · x -10.83 m, y 29.88 m"><title>A12B1 · hall grid · x -10.83 m, y 29.88 m</title><circle class="sm-hit" cx="29.88" cy="-10.83" r="1.1"/><circle cx="29.88" cy="-10.83" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A12B3 · hall grid · x -4.86 m, y 29.89 m"><title>A12B3 · hall grid · x -4.86 m, y 29.89 m</title><circle class="sm-hit" cx="29.89" cy="-4.86" r="1.1"/><circle cx="29.89" cy="-4.86" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A12B5 · hall grid · x 1.14 m, y 29.93 m"><title>A12B5 · hall grid · x 1.14 m, y 29.93 m</title><circle class="sm-hit" cx="29.93" cy="1.14" r="1.1"/><circle cx="29.93" cy="1.14" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A13B2 · hall grid · x -7.84 m, y 32.87 m"><title>A13B2 · hall grid · x -7.84 m, y 32.87 m</title><circle class="sm-hit" cx="32.87" cy="-7.84" r="1.1"/><circle cx="32.87" cy="-7.84" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A13B4 · hall grid · x -1.87 m, y 32.92 m"><title>A13B4 · hall grid · x -1.87 m, y 32.92 m</title><circle class="sm-hit" cx="32.92" cy="-1.87" r="1.1"/><circle cx="32.92" cy="-1.87" r="0.6"/></g>
+<g class="sm-pt sm-pt-hall" data-tip="A13B6 · hall grid · x 4.10 m, y 32.90 m"><title>A13B6 · hall grid · x 4.10 m, y 32.90 m</title><circle class="sm-hit" cx="32.9" cy="4.1" r="1.1"/><circle cx="32.9" cy="4.1" r="0.6"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T01 · outside the gates · x -20.14 m, y -3.38 m"><title>T01 · outside the gates · x -20.14 m, y -3.38 m</title><circle class="sm-hit" cx="-3.38" cy="-20.14" r="1.1"/><circle cx="-3.38" cy="-20.14" r="0.6"/><circle class="sm-dot" cx="-3.38" cy="-20.14" r="0.22"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T02 · outside the gates · x -17.47 m, y -3.03 m"><title>T02 · outside the gates · x -17.47 m, y -3.03 m</title><circle class="sm-hit" cx="-3.03" cy="-17.47" r="1.1"/><circle cx="-3.03" cy="-17.47" r="0.6"/><circle class="sm-dot" cx="-3.03" cy="-17.47" r="0.22"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T03 · outside the gates · x -14.81 m, y -3.05 m"><title>T03 · outside the gates · x -14.81 m, y -3.05 m</title><circle class="sm-hit" cx="-3.05" cy="-14.81" r="1.1"/><circle cx="-3.05" cy="-14.81" r="0.6"/><circle class="sm-dot" cx="-3.05" cy="-14.81" r="0.22"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T04 · outside the gates · x 6.81 m, y -2.96 m"><title>T04 · outside the gates · x 6.81 m, y -2.96 m</title><circle class="sm-hit" cx="-2.96" cy="6.81" r="1.1"/><circle cx="-2.96" cy="6.81" r="0.6"/><circle class="sm-dot" cx="-2.96" cy="6.81" r="0.22"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T05 · outside the gates · x 9.37 m, y -2.78 m"><title>T05 · outside the gates · x 9.37 m, y -2.78 m</title><circle class="sm-hit" cx="-2.78" cy="9.37" r="1.1"/><circle cx="-2.78" cy="9.37" r="0.6"/><circle class="sm-dot" cx="-2.78" cy="9.37" r="0.22"/></g>
+<g class="sm-pt sm-pt-out" data-tip="T06 · outside the gates · x 12.06 m, y -2.53 m"><title>T06 · outside the gates · x 12.06 m, y -2.53 m</title><circle class="sm-hit" cx="-2.53" cy="12.06" r="1.1"/><circle cx="-2.53" cy="12.06" r="0.6"/><circle class="sm-dot" cx="-2.53" cy="12.06" r="0.22"/></g>
+</g>
+<g class="sm-anchors">
+<g class="sm-an sm-uwb" data-tip="UWB_01 · UWB anchor · height 3.43 m"><title>UWB_01 · UWB anchor · height 3.43 m</title><circle class="sm-hit" cx="20.91" cy="3.67" r="0.9"/><polygon points="20.91,2.85 21.66,4.24 20.16,4.24"/></g>
+<g class="sm-an sm-ble" data-tip="BLE_01 · BLE beacon · height 3.21 m"><title>BLE_01 · BLE beacon · height 3.21 m</title><circle class="sm-hit" cx="22.51" cy="3.67" r="0.9"/><polygon points="22.51,2.92 23.26,3.67 22.51,4.42 21.76,3.67"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_01 · WiFi access point · height 3.60 m"><title>WIFI_01 · WiFi access point · height 3.60 m</title><circle class="sm-hit" cx="24.11" cy="3.67" r="0.9"/><rect x="23.51" y="3.07" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_02 · UWB anchor · height 3.13 m"><title>UWB_02 · UWB anchor · height 3.13 m</title><circle class="sm-hit" cx="4.65" cy="4.04" r="0.9"/><polygon points="4.65,3.22 5.4,4.61 3.9,4.61"/></g>
+<g class="sm-an sm-ble" data-tip="BLE_02 · BLE beacon · height 2.93 m"><title>BLE_02 · BLE beacon · height 2.93 m</title><circle class="sm-hit" cx="6.25" cy="4.04" r="0.9"/><polygon points="6.25,3.29 7,4.04 6.25,4.79 5.5,4.04"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_02 · WiFi access point · height 3.51 m"><title>WIFI_02 · WiFi access point · height 3.51 m</title><circle class="sm-hit" cx="7.85" cy="4.04" r="0.9"/><rect x="7.25" y="3.44" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_03 · UWB anchor · height 4.11 m"><title>UWB_03 · UWB anchor · height 4.11 m</title><circle class="sm-hit" cx="-7.96" cy="-3.97" r="0.9"/><polygon points="-7.96,-4.8 -7.21,-3.41 -8.71,-3.41"/></g>
+<g class="sm-an sm-ble" data-tip="BLE_03 · BLE beacon · height 3.98 m"><title>BLE_03 · BLE beacon · height 3.98 m</title><circle class="sm-hit" cx="-6.36" cy="-3.97" r="0.9"/><polygon points="-6.36,-4.72 -5.61,-3.97 -6.36,-3.22 -7.11,-3.97"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_03 · WiFi access point · height 4.32 m"><title>WIFI_03 · WiFi access point · height 4.32 m</title><circle class="sm-hit" cx="-4.76" cy="-3.97" r="0.9"/><rect x="-5.36" y="-4.57" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_04 · UWB anchor · height 3.29 m"><title>UWB_04 · UWB anchor · height 3.29 m</title><circle class="sm-hit" cx="6.23" cy="-12.14" r="0.9"/><polygon points="6.23,-12.97 6.98,-11.58 5.48,-11.58"/></g>
+<g class="sm-an sm-ble" data-tip="BLE_04 · BLE beacon · height 3.01 m"><title>BLE_04 · BLE beacon · height 3.01 m</title><circle class="sm-hit" cx="7.83" cy="-12.14" r="0.9"/><polygon points="7.83,-12.89 8.58,-12.14 7.83,-11.39 7.08,-12.14"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_04 · WiFi access point · height 3.56 m"><title>WIFI_04 · WiFi access point · height 3.56 m</title><circle class="sm-hit" cx="9.43" cy="-12.14" r="0.9"/><rect x="8.83" y="-12.74" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_05 · UWB anchor · height 3.34 m"><title>UWB_05 · UWB anchor · height 3.34 m</title><circle class="sm-hit" cx="22.61" cy="-11.96" r="0.9"/><polygon points="22.61,-12.79 23.36,-11.4 21.86,-11.4"/></g>
+<g class="sm-an sm-ble" data-tip="BLE_05 · BLE beacon · height 3.02 m"><title>BLE_05 · BLE beacon · height 3.02 m</title><circle class="sm-hit" cx="24.21" cy="-11.96" r="0.9"/><polygon points="24.21,-12.71 24.96,-11.96 24.21,-11.21 23.46,-11.96"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_05 · WiFi access point · height 3.60 m"><title>WIFI_05 · WiFi access point · height 3.60 m</title><circle class="sm-hit" cx="25.81" cy="-11.96" r="0.9"/><rect x="25.21" y="-12.56" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_06 · UWB anchor · height 3.29 m"><title>UWB_06 · UWB anchor · height 3.29 m</title><circle class="sm-hit" cx="32.12" cy="-3.66" r="0.9"/><polygon points="32.12,-4.49 32.87,-3.1 31.37,-3.1"/></g>
+<g class="sm-an sm-wifi" data-tip="WIFI_06 · WiFi access point · height 3.62 m"><title>WIFI_06 · WiFi access point · height 3.62 m</title><circle class="sm-hit" cx="33.72" cy="-3.66" r="0.9"/><rect x="33.12" y="-4.26" width="1.2" height="1.2" rx="0.12"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_07 · UWB anchor · height 3.45 m"><title>UWB_07 · UWB anchor · height 3.45 m</title><circle class="sm-hit" cx="35.13" cy="4.75" r="0.9"/><polygon points="35.13,3.93 35.88,5.32 34.38,5.32"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_08 · UWB anchor · height 3.65 m"><title>UWB_08 · UWB anchor · height 3.65 m</title><circle class="sm-hit" cx="-6.42" cy="2.04" r="0.9"/><polygon points="-6.42,1.21 -5.67,2.6 -7.17,2.6"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_09 · UWB anchor · height 4.18 m"><title>UWB_09 · UWB anchor · height 4.18 m</title><circle class="sm-hit" cx="-6.38" cy="-9.98" r="0.9"/><polygon points="-6.38,-10.81 -5.63,-9.42 -7.13,-9.42"/></g>
+<g class="sm-an sm-uwb" data-tip="UWB_10 · UWB anchor · height 3.53 m"><title>UWB_10 · UWB anchor · height 3.53 m</title><circle class="sm-hit" cx="36.58" cy="-12.1" r="0.9"/><polygon points="36.58,-12.92 37.33,-11.54 35.83,-11.54"/></g>
+<g class="sm-an sm-nr5g" data-tip="NR5G_11 · 5G NR radio unit · height 8.81 m"><title>NR5G_11 · 5G NR radio unit · height 8.81 m</title><circle class="sm-hit" cx="30.22" cy="0.07" r="0.9"/><polygon points="30.97,0.07 30.59,0.71 29.84,0.71 29.47,0.07 29.84,-0.58 30.59,-0.58"/></g>
+<g class="sm-an sm-nr5g" data-tip="NR5G_12 · 5G NR radio unit · height 8.89 m"><title>NR5G_12 · 5G NR radio unit · height 8.89 m</title><circle class="sm-hit" cx="12.05" cy="-10.32" r="0.9"/><polygon points="12.8,-10.32 12.43,-9.67 11.68,-9.67 11.3,-10.32 11.68,-10.97 12.43,-10.97"/></g>
+<g class="sm-an sm-nr5g" data-tip="NR5G_13 · 5G NR radio unit · height 8.90 m"><title>NR5G_13 · 5G NR radio unit · height 8.90 m</title><circle class="sm-hit" cx="0.15" cy="-0.11" r="0.9"/><polygon points="0.9,-0.11 0.52,0.54 -0.23,0.54 -0.6,-0.11 -0.23,-0.76 0.52,-0.76"/></g>
+</g>
+<g class="sm-ts" data-tip="Total station (Leica TS16) · origin of the local frame"><title>Total station (Leica TS16) · origin of the local frame</title><circle class="sm-hit" cx="0" cy="0" r="1.1"/><circle cx="0" cy="0" r="0.7"/><path d="M-0.7 0H0.7M0 -0.7V0.7"/></g>
+<text class="sm-label" x="-1.53" y="-16.97">T01–T03</text>
+<text class="sm-label" x="-1.03" y="9.91">T04–T06</text>
+<g class="sm-chrome sm-north"><path transform="translate(37.8 -21.6) rotate(-57.8)" d="M0 1.7V-1.7M-0.75 -0.85L0 -1.8L0.75 -0.85"/><text x="35.18" y="-22.75" text-anchor="middle">N</text></g>
+<g class="sm-chrome sm-scale"><path d="M-9 15h10"/><path d="M-9 14.5v1M-4 14.7v0.6M1 14.5v1"/><text x="-4" y="14.1" text-anchor="middle">10 m</text></g>
+</svg>
+<!-- SITEMAP:END -->
+      <div class="map-tip" role="status" hidden></div>
+    </div>
+    <figcaption>Reference points and infrastructure in the local frame of the dataset. Devices mounted at the same position are drawn side by side, and pointing at a marker shows its identifier. Coordinates: <a href="https://github.com/TUD-ITVS/HYMN-dataset/tree/main/data/reference">reference files</a>. <span class="credit">Background: orthophoto, Quelle: GeoSN, <a href="https://www.govdata.de/dl-de/by-2-0">dl-de/by-2-0</a>, resampled to the local frame.</span></figcaption>
+  </figure>
+  <div class="env-photos">
+    <figure class="photo env-lead">
+      <img src="assets/img/gate-outside.webp" width="1600" height="1200" alt="Dusk outside the industrial hall. A large gate stands open and the lit hall interior with tripods and cables is visible through it. A white van is parked on the driveway in front of the building.">
+      <figcaption>Open gate on the driveway, seen from outside the hall on the evening before the recording.</figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="assets/img/hall-overview.webp" width="1600" height="1200" loading="lazy" alt="Wide-angle view of the empty hall interior under a steel roof. Painted point markings cover the raised concrete floor, a surveying tripod stands in the middle, and the lowered driveway with a yellow edge runs along the right side.">
+      <figcaption>Hall interior with the raised floor and the lowered driveway on the right, photographed in March 2025, after the campaign.</figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="assets/img/hall.webp" width="1600" height="961" loading="lazy" alt="Interior of the industrial hall seen along the lowered driveway. Radio infrastructure on tripods stands along the left wall and on the raised hall floor to the right, where a yellow surveying tripod carries the total station. A van stands on the driveway in front of the far gate.">
+      <figcaption>Measurement setup along the driveway, with the total station on a yellow tripod. <span class="credit">PLANS 2025, Fig. 3.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap facts" aria-label="Key facts">
+  <dl>
+    <div><dt>5 systems</dt><dd>UWB, BLE, WiFi FTM, 5G NR, GNSS</dd></div>
+    <div><dt>48 points</dt><dd>static, 3&nbsp;min each</dd></div>
+    <div><dt>44&nbsp;m × 18&nbsp;m</dt><dd>industrial hall, Torgau, Germany</dd></div>
+    <div><dt>mm-level</dt><dd>ground truth, Leica TS16</dd></div>
+    <div><dt>23 Oct 2024</dt><dd>recording date</dd></div>
+    <div><dt>CC BY 4.0</dt><dd>data licence, code under MIT</dd></div>
+  </dl>
+</section>
+
+<section class="wrap section" id="dataset" aria-labelledby="dataset-h">
+  <h2 id="dataset-h">Dataset</h2>
+  <div class="cols dataset-intro">
+    <div class="prose">
+      <p>The measurements were recorded on 23 October 2024 in an industrial hall in Torgau, Germany. A driveway crosses the hall, and the gates on each side stayed open throughout the campaign, so the points on the driveway see mixed indoor and outdoor propagation. A measurement plate carrying all receivers was placed on each reference point and held static for three minutes while all systems recorded in parallel. A Leica TS16 total station surveyed every reference point and every infrastructure device at millimetre level.</p>
+      <p id="point-groups"><strong>Reference points.</strong> The 48 points form three groups: 36 grid points inside the hall (A02–A13), six points on the driveway inside the hall (row A01), and six points on the driveway outside the gates (T01–T06). The studies below label these groups differently, and each summary names its own zone scheme.</p>
+    </div>
+    <figure class="plate-figure">
+      <img src="assets/img/plate.webp" width="1400" height="1056" loading="lazy" alt="The measurement plate seen from above: a BLE tag with two antennas, a smartphone and a UWB tag in holders, a surveying prism in the centre, a round GNSS antenna and a round 5G NR antenna, all mounted on a black perforated plate.">
+      <figcaption>Measurement plate with the mobile units from the table below: BLE tag, UWB tags, smartphone, GNSS antenna, 5G NR antenna and the prism for the total station. Each sensor has its own ground-truth position.</figcaption>
+    </figure>
+  </div>
+
+  <div class="table-scroll">
+    <table class="systems">
+      <caption>Infrastructure and mobile units per system in the HYMN campaign.</caption>
+      <thead><tr><th scope="col">System</th><th scope="col">Infrastructure</th><th scope="col">Mobile unit on the plate</th><th scope="col">Principle</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="tech t-uwb">UWB</span></th><td>10 anchors<span class="sub">ZigPos RTLS</span></td><td>2 tags<span class="sub">ZigPos RTLS</span></td><td>Two-way ranging (TWR)</td></tr>
+        <tr><th scope="row"><span class="tech t-ble">BLE</span></th><td>5 beacons<span class="sub">Metirionic DMK-215</span></td><td>Tag<span class="sub">Metirionic DMK-215</span></td><td>Phase-based ranging (PBR)</td></tr>
+        <tr><th scope="row"><span class="tech t-wifi">WiFi</span></th><td>6 access points<span class="sub">HPE Aruba 630 Series</span></td><td>Smartphone<span class="sub">Google Pixel 6a</span></td><td>Fine Timing Measurement (FTM)</td></tr>
+        <tr><th scope="row"><span class="tech t-nr5g">5G NR</span></th><td>3 radio units<span class="sub">Industrial small cell system</span></td><td>User equipment<span class="sub">with 5G NR antenna</span></td><td>Fingerprinting (SNR)</td></tr>
+        <tr><th scope="row"><span class="tech t-gnss">GNSS</span></th><td>Satellites<span class="sub">GPS, GLONASS, Galileo, BeiDou</span></td><td>Receiver<span class="sub">NovAtel PwrPak 7</span></td><td>Pseudorange</td></tr>
+        <tr><th scope="row"><span class="tech t-ref">Ground truth</span></th><td>Total station<span class="sub">Leica TS16</span></td><td>Prism</td><td>Optical survey</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cols cols-even">
+    <div class="prose">
+      <h3>Contents</h3>
+      <dl class="contents">
+        <dt>Processed data</dt>
+        <dd>One table per system in CSV, Parquet and pickle format, and a merged index that links the observations of all systems by timestamp and reference point.</dd>
+        <dt>Raw logs</dt>
+        <dd>The native output of each system, including GNSS observations in RINEX&nbsp;3 with precise orbit and clock products.</dd>
+        <dt>Reference data</dt>
+        <dd>Coordinates of the infrastructure and the reference points in a local frame, in UTM33N (EPSG:25833) and in ECEF (EPSG:4978), and the start and end time of every static window.</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <h3>Scope and limits</h3>
+      <ul class="limits">
+        <li>All recordings are static. The dataset contains no trajectories.</li>
+        <li>GNSS was logged while the plate occupied the 12 driveway points. The 36 hall-grid points have no GNSS observations.</li>
+        <li>The 5G NR data are SNR values and position outputs of the small cell system, not range measurements.</li>
+        <li>Each system logs at its own rate, and the data are not resampled to a common clock.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quickstart">
+    <h3>Quick start</h3>
+    <p>Python 3.11 or 3.12. The example iterates over the merged index and computes WiFi ranging errors against ground truth.</p>
+    <div class="code-block">
+<pre data-copy><code>git clone https://github.com/TUD-ITVS/HYMN-dataset
+cd HYMN-dataset
+python -m pip install -r examples/requirements.txt
+python examples/example_iterator.py</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="research" aria-labelledby="research-h">
+  <h2 id="research-h">Research built on HYMN</h2>
+
+  <ol class="timeline">
+    <li><time datetime="2024-10-23">Oct 2024</time><span>Measurement campaign in Torgau</span></li>
+    <li><time datetime="2025-04-28">Apr 2025</time><span>PLANS 2025, Salt Lake City</span></li>
+    <li><time datetime="2025-12-18">Dec 2025</time><span>Dataset v1.0.0 on Zenodo</span></li>
+    <li><time datetime="2026-04-22">Apr 2026</time><span>Descriptor preprint, then IEEE Data Descriptions</span></li>
+    <li><time datetime="2026-06-05">Jun 2026</time><span>ICRA 2026 workshop, Vienna</span></li>
+    <li><time datetime="2026-10-07">Oct 2026</time><span>IPIN 2026, Rome</span></li>
+  </ol>
+
+  <article class="card card-split" id="ipin2026" aria-labelledby="ipin-h">
+    <div class="card-text">
+      <p class="venue"><span class="badge">IPIN 2026</span><span class="status">Accepted · talk on 7 October 2026, Rome</span></p>
+      <h3 id="ipin-h">From Least Squares to Deep Learning: Benchmarking Indoor Positioning on the HYMN Multi-Technology Dataset</h3>
+      <p class="authors">Paul Schwarzbach, Muhammad Ammad</p>
+      <p><strong>Question.</strong> How do range-based methods from least squares to a learned regressor compare on fused UWB, BLE and WiFi ranges, and does the regressor generalise to reference points it has not seen?</p>
+      <p class="data-note">Fused UWB, BLE and WiFi FTM ranges at all 48 points. The paper labels the hall grid as indoor and the 12 driveway points as transition.</p>
+      <ul class="findings">
+        <li>The Bayesian grid filter (BGF) reaches the lowest median error of 0.44&nbsp;m, but a small fraction of epochs collapse near the grid bounds and stretch its P95 to 6.29&nbsp;m.</li>
+        <li>A ResNet trained on random epoch-level splits sits close on the median (0.55&nbsp;m) and has the shortest tail (P95 1.31&nbsp;m).</li>
+        <li>Holding reference points out of training raises the ResNet's median to 3.22&nbsp;m. Its random-split advantage reflects interpolation rather than generalisation to unseen locations.</li>
+      </ul>
+      <p class="links">
+        <span class="link-pending" title="The preprint link will be added once available">Preprint: to appear</span>
+        <a href="https://github.com/TUD-ITVS/hymn-localization-ipin2026">Code</a>
+        <a href="https://doi.org/10.5281/zenodo.20058106">Zenodo</a>
+        <a href="#cite-ipin">BibTeX</a>
+      </p>
+    </div>
+    <div class="card-media">
+      <figure>
+        <div class="paper-fig"><img src="assets/fig/ipin-ecdf-fused.svg" width="354" height="246" loading="lazy" alt="Empirical CDF of horizontal positioning error for ILS, RLS, BGF, ResNet-SpatialHoldout and ResNet-RandomSplit on the fused input, from 0 to 10 metres. ResNet-RandomSplit and BGF rise steepest, ILS slowest."></div>
+        <figcaption>ECDF of horizontal positioning error on the fused input. Dotted lines mark the median and P95. The abscissa is clipped at 10&nbsp;m. <span class="credit">IPIN 2026 paper, Fig. 3.</span></figcaption>
+      </figure>
+      <div class="table-scroll">
+        <table class="results">
+          <caption>Horizontal positioning error on the fused input, as reported in the paper.</caption>
+          <thead><tr><th scope="col">Method</th><th scope="col" class="num">Median [m]</th><th scope="col" class="num">P95 [m]</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Iterative least squares (ILS)</th><td class="num">3.62</td><td class="num">18.66</td></tr>
+            <tr><th scope="row">Robust least squares, Huber (RLS)</th><td class="num">1.07</td><td class="num">5.68</td></tr>
+            <tr><th scope="row">Bayesian grid filter (BGF)</th><td class="num">0.44</td><td class="num">6.29</td></tr>
+            <tr><th scope="row">ResNet, random split</th><td class="num">0.55</td><td class="num">1.31</td></tr>
+            <tr><th scope="row">ResNet, spatial hold-out</th><td class="num">3.22</td><td class="num">7.57</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="icra2026" aria-labelledby="icra-h">
+    <div class="card-text">
+      <p class="venue"><span class="badge">ICRA 2026 Workshop</span><span class="status"><a href="https://robotmeetsranging.tech/">1st Workshop on Robot Meets GNSS and Ranging for Seamless Autonomy</a> · 5 June 2026, Vienna</span></p>
+      <h3 id="icra-h">Bridging the Indoor-Outdoor Gap: Cross-Technology Ranging for Seamless Robot Navigation</h3>
+      <p class="authors">Paul Schwarzbach</p>
+      <p><strong>Question.</strong> How do satellite and terrestrial ranging behave outdoors, in the transition zone and indoors, judged by measurement availability and by ranging residuals against ground truth?</p>
+      <p class="data-note">Raw ranges of GNSS, UWB, WiFi FTM and BLE. The paper labels the six points outside the gates as outdoor, row A01 as transition and the hall grid as indoor.</p>
+      <ul class="findings">
+        <li>UWB ranges stay tight inside the hall, with a P95 absolute residual of 0.99&nbsp;m indoors against 3.70&nbsp;m outdoors.</li>
+        <li>WiFi FTM and BLE ranges carry positive biases of several metres that change with the zone. For WiFi the bias grows from 1.17&nbsp;m in the transition zone to 5.94&nbsp;m outdoors.</li>
+        <li>Satellite visibility drops sharply along the driveway row inside the hall, so satellite and terrestrial ranging degrade together at the building boundary.</li>
+      </ul>
+    </div>
+    <figure class="card-wide">
+      <div class="paper-fig"><img src="assets/fig/icra-ecdf-residuals.svg" width="1024" height="346" loading="lazy" alt="Four panels of empirical CDFs of absolute ranging residuals for GNSS, UWB, WiFi and BLE, with solid, dashed and dotted lines for the outdoor, transition and indoor zones. UWB residuals stay within a few metres, BLE outdoor residuals reach tens of metres."></div>
+      <figcaption>Empirical CDFs of absolute ranging residuals per technology and zone. Linestyles encode zones and dots mark medians. Panels use independent abscissae. <span class="credit">ICRA 2026 workshop paper, Fig. 5.</span></figcaption>
+    </figure>
+    <p class="links card-links">
+      <a href="https://arxiv.org/abs/2604.25541">arXiv:2604.25541</a>
+      <a href="#cite-icra">BibTeX</a>
+    </p>
+  </article>
+
+  <article class="card" id="plans2025" aria-labelledby="plans-h">
+    <div class="card-text">
+      <p class="venue"><span class="badge">IEEE/ION PLANS 2025</span><span class="status">28 April – 1 May 2025, Salt Lake City</span></p>
+      <h3 id="plans-h">An empirical assessment of indoor-outdoor localization based on signals of opportunity from multiple systems</h3>
+      <p class="authors">Albrecht Michler, Paul Schwarzbach, Jonas Ninnemann, Muhammad Ammad, Oliver Michler</p>
+      <p><strong>Question.</strong> Can an opportunistic fusion of GNSS and terrestrial ranging keep a position solution on a path that leads from outside the hall through the building and out again?</p>
+      <p class="data-note">The 12 driveway points, visited in order from T01 through row A01 to T06. The paper classifies them as outdoor, transition and indoor.</p>
+      <ul class="findings">
+        <li>A grid filter fuses GNSS, UWB, WiFi FTM and BLE measurements with separate measurement models for indoor and outdoor positions.</li>
+        <li>Positioning outside the hall is less accurate than in the indoor and transition zones. The paper traces this to the deliberately basic GNSS processing, which used only upper L-band code measurements without NLOS mitigation.</li>
+        <li>Indoor and transition accuracy follows from the accuracy and availability of the UWB ranges.</li>
+      </ul>
+    </div>
+    <figure class="card-wide">
+      <div class="paper-fig"><img src="assets/fig/plans-position-errors.svg" width="1044" height="494" loading="lazy" alt="Left: empirical CDF of positioning error in logit scale for indoor, outdoor, transition and overall. Right: box plots of positioning error per zone. The outdoor box spans up to about 5 metres, the indoor and transition boxes stay near 1 metre."></div>
+      <figcaption>Position errors per evaluation zone as an empirical CDF in logit scale (a) and as box plots (b). <span class="credit">PLANS 2025 paper, Fig. 14, © 2025 IEEE.</span></figcaption>
+    </figure>
+    <p class="links card-links">
+      <a href="https://doi.org/10.1109/PLANS61210.2025.11028349">IEEE Xplore</a>
+      <a href="#cite-plans">BibTeX</a>
+    </p>
+  </article>
+</section>
+
+<section class="wrap section" id="code" aria-labelledby="code-h">
+  <h2 id="code-h">Code &amp; data</h2>
+  <div class="table-scroll">
+    <table class="artifacts">
+      <caption>Archived artifacts with persistent identifiers.</caption>
+      <thead><tr><th scope="col">Artifact</th><th scope="col">Archive</th><th scope="col">Source</th><th scope="col">Licence</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">HYMN dataset<span class="sub">measurements, preprocessing, examples</span></th>
+          <td><a href="https://doi.org/10.5281/zenodo.17979434">10.5281/zenodo.17979434</a></td>
+          <td><a href="https://github.com/TUD-ITVS/HYMN-dataset">TUD-ITVS/HYMN-dataset</a></td>
+          <td>data CC BY 4.0, code MIT</td>
+        </tr>
+        <tr>
+          <th scope="row">IPIN 2026 benchmark<span class="sub">ILS, RLS, BGF, ResNet pipeline</span></th>
+          <td><a href="https://doi.org/10.5281/zenodo.20058106">10.5281/zenodo.20058106</a></td>
+          <td><a href="https://github.com/TUD-ITVS/hymn-localization-ipin2026">TUD-ITVS/hymn-localization-ipin2026</a></td>
+          <td>MIT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The dataset DOI resolves to the latest version on Zenodo.</p>
+</section>
+
+<section class="wrap section" id="cite" aria-labelledby="cite-h">
+  <h2 id="cite-h">Cite</h2>
+  <p>If you use the dataset, please cite the descriptor.</p>
+  <div class="code-block" id="cite-descriptor">
+<pre data-copy><code>@article{Ammad2026_HYMN,
+  author  = {Ammad, Muhammad and Michler, Albrecht and Schwarzbach, Paul and
+             Ninnemann, Jonas and U{\ss}ler, Hagen and Michler, Oliver},
+  title   = {Descriptor: A Hybrid Indoor and Indoor--Outdoor Positioning
+             Multitechnology Dataset ({HYMN})},
+  journal = {IEEE Data Descriptions},
+  volume  = {3},
+  pages   = {379--387},
+  year    = {2026},
+  doi     = {10.1109/IEEEDATA.2026.3691044}
+}</code></pre>
+  </div>
+
+  <details id="cite-ipin">
+    <summary>IPIN 2026 benchmark paper</summary>
+    <div class="code-block">
+<pre data-copy><code>@inproceedings{Schwarzbach2026_HYMN_benchmark,
+  author    = {Schwarzbach, Paul and Ammad, Muhammad},
+  title     = {From Least Squares to Deep Learning: Benchmarking Indoor
+               Positioning on the {HYMN} Multi-Technology Dataset},
+  booktitle = {16th International Conference on Indoor Positioning and
+               Indoor Navigation (IPIN)},
+  address   = {Rome, Italy},
+  year      = {2026},
+  note      = {to appear}
+}</code></pre>
+    </div>
+  </details>
+  <details id="cite-code">
+    <summary>IPIN 2026 benchmark code</summary>
+    <div class="code-block">
+<pre data-copy><code>@misc{Schwarzbach2026_HYMN_code,
+  author       = {Schwarzbach, Paul and Ammad, Muhammad},
+  title        = {{HYMN} Multi-Technology Indoor Positioning Evaluation},
+  version      = {v1.1-ipin2026},
+  howpublished = {Zenodo},
+  year         = {2026},
+  doi          = {10.5281/zenodo.20058106}
+}</code></pre>
+    </div>
+  </details>
+  <details id="cite-icra">
+    <summary>ICRA 2026 workshop paper</summary>
+    <div class="code-block">
+<pre data-copy><code>@misc{Schwarzbach2026_Bridging,
+  author        = {Schwarzbach, Paul},
+  title         = {Bridging the Indoor-Outdoor Gap: Cross-Technology Ranging
+                   for Seamless Robot Navigation},
+  howpublished  = {1st Workshop on Robot Meets GNSS and Ranging for Seamless
+                   Autonomy, IEEE ICRA 2026, Vienna},
+  year          = {2026},
+  eprint        = {2604.25541},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2604.25541}
+}</code></pre>
+    </div>
+  </details>
+  <details id="cite-plans">
+    <summary>PLANS 2025 paper</summary>
+    <div class="code-block">
+<pre data-copy><code>@inproceedings{Michler2025_PLANS,
+  author    = {Michler, Albrecht and Schwarzbach, Paul and Ninnemann, Jonas and
+               Ammad, Muhammad and Michler, Oliver},
+  title     = {An empirical assessment of indoor-outdoor localization based on
+               signals of opportunity from multiple systems},
+  booktitle = {2025 IEEE/ION Position, Location and Navigation Symposium (PLANS)},
+  pages     = {948--959},
+  year      = {2025},
+  doi       = {10.1109/PLANS61210.2025.11028349}
+}</code></pre>
+    </div>
+  </details>
+</section>
+
+<section class="wrap section" id="people" aria-labelledby="people-h">
+  <h2 id="people-h">People &amp; acknowledgement</h2>
+  <div class="cols cols-even">
+    <div class="prose">
+      <h3>Dataset authors</h3>
+      <ul class="people">
+        <li>Muhammad Ammad <a class="orcid" href="https://orcid.org/0009-0007-2720-8433" aria-label="ORCID of Muhammad Ammad">iD</a></li>
+        <li>Albrecht Michler <a class="orcid" href="https://orcid.org/0000-0002-3434-3488" aria-label="ORCID of Albrecht Michler">iD</a></li>
+        <li>Paul Schwarzbach <a class="orcid" href="https://orcid.org/0000-0002-1091-782X" aria-label="ORCID of Paul Schwarzbach">iD</a></li>
+        <li>Jonas Ninnemann <a class="orcid" href="https://orcid.org/0000-0001-7988-079X" aria-label="ORCID of Jonas Ninnemann">iD</a></li>
+        <li>Hagen Ußler <a class="orcid" href="https://orcid.org/0009-0001-2212-6590" aria-label="ORCID of Hagen Ußler">iD</a></li>
+        <li>Oliver Michler <a class="orcid" href="https://orcid.org/0000-0002-8599-5304" aria-label="ORCID of Oliver Michler">iD</a></li>
+      </ul>
+      <p class="note">The work was carried out at the Chair of Transport Systems Information Technology, TUD Dresden University of Technology.</p>
+    </div>
+    <div class="prose">
+      <h3>Acknowledgement</h3>
+      <p>The measurement campaign, the dataset and the PLANS 2025 study were funded in part by the German Federal Ministry for Digital and Transport (BMDV) within the project IDEA (FKZ 19OI22020C). MRK Management Consultants GmbH provided access to the facility.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Maintained by Paul Schwarzbach · <a href="https://orcid.org/0000-0002-1091-782X">ORCID</a> · <a href="https://github.com/PaulSchwarzbach">GitHub</a> · Last updated <time datetime="2026-09-29">29 September 2026</time></p>
+    <p>Page text CC BY 4.0, page code MIT. Figures and photos are reproduced from the cited publications. Orthophoto: Quelle: GeoSN, dl-de/by-2-0. This page sets no cookies and loads no third-party resources. It is hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Local notes and raw inputs (never published)
+linked_local_projects.txt
+_incoming/
+_src/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Raw photos are converted by tools/build_assets.py and never published
+assets/img/*.jpg
+assets/img/*.jpeg
+assets/img/*.JPG
+assets/img/*.JPEG
+assets/img/*.heic
+assets/img/*.HEIC
+assets/img/*.tif
+assets/img/*.tiff
+assets/fig/*.jpg
+assets/fig/*.jpeg
+assets/fig/*.JPG
+assets/fig/*.JPEG
+assets/fig/*.heic

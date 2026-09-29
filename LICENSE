@@ -1,0 +1,42 @@
+This repository contains the source of the HYMN project page.
+
+Page text
+---------
+The text of index.html is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/.
+Copyright (c) 2026 Paul Schwarzbach.
+
+Page code
+---------
+The HTML structure, CSS, JavaScript and the scripts in tools/ are licensed under
+the MIT License:
+
+Copyright (c) 2026 Paul Schwarzbach
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Excluded
+--------
+- Figures in assets/fig/ and photos in assets/img/ are reproduced from the
+  publications credited next to them on the page and remain under the terms of
+  those publications.
+- assets/img/site-ortho.webp is derived from GeoSN orthophotos,
+  Quelle: GeoSN, dl-de/by-2-0 (https://www.govdata.de/dl-de/by-2-0).
+- Fonts in assets/fonts/ are licensed under the SIL Open Font License 1.1
+  (see assets/fonts/OFL-*.txt).
