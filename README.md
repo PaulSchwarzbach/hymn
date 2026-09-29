@@ -15,11 +15,17 @@ assets/css/style.css    all styles, light and dark
 assets/js/main.js       copy buttons, map tooltips and layer toggles (optional)
 assets/fonts/           Inter and Source Serif 4, latin subsets, SIL OFL 1.1
 assets/fig/             paper figures converted to SVG
-assets/img/             photos, orthophoto, favicon, Open Graph image
+assets/img/             photos, orthophoto, favicon, touch icon, Open Graph image
+brand/make_logo.py      HYMN logo generator, the canonical source of the logo
+brand/logo/             logo SVGs, PDFs (pdf/) and apple-touch-icon.png, all generated
 tools/build_assets.py   photos and paper figures from their original sources
 tools/make_site_map.py  site map from the HYMN reference CSVs + GeoSN orthophoto
-tools/make_og.py        Open Graph preview image (headless Edge/Chrome)
+tools/make_og.py        Open Graph image and GitHub social previews (headless Edge/Chrome)
 ```
+
+Other repositories that show the logo (README banners of `HYMN-dataset` and
+`hymn-localization-ipin2026`, the IPIN 2026 slides) copy files from `brand/logo/`.
+Change the logo only in `brand/make_logo.py`, never in the SVGs.
 
 Local-only folders (gitignored): `_src/` caches extracted originals and screenshots,
 `_incoming/` receives new photos.
@@ -27,15 +33,24 @@ Local-only folders (gitignored): `_src/` caches extracted originals and screensh
 ## Rebuild
 
 Requires Python 3.11+, `numpy`, `Pillow`, `PyMuPDF`, and Poppler's `pdftocairo`.
+The logo also needs `fontTools` and Source Serif 4 from a TeX distribution
+(found via `kpsewhich`).
 Paths to the source projects are resolved relative to the folder that holds
 `hymn-localization`, `indoor-outdoor-localization` and `HYMN-dataset`.
 
 ```bash
+python brand/make_logo.py                     # logo; --png adds control renderings
 python tools/build_assets.py                  # photos and paper figures
 python tools/make_site_map.py                 # site map -> index.html, assets/img/site-ortho.webp
 python -m http.server 8765                    # preview at http://127.0.0.1:8765/
 python tools/make_og.py                       # needs the server above
+python tools/make_og.py --social              # GitHub social previews -> _src/social/
 ```
+
+After a logo change, copy `brand/logo/hymn-icon.svg` to `assets/img/favicon.svg`,
+`brand/logo/apple-touch-icon.png` to `assets/img/`, paste
+`brand/logo/hymn-mark-inline.svg` into the `.brand` link of `index.html`, and
+rerun `make_og.py`.
 
 ## Updating
 
@@ -76,6 +91,9 @@ below. Paths are relative to the local project folders.
 | `assets/fig/ipin-ecdf-fused.svg` | `hymn-localization/Paper/fig/ecdf_fused.pdf` | IPIN 2026 Fig. 3 |
 | `assets/fig/icra-ecdf-residuals.svg` | `ICRA/figures/paper_fig3_ecdf.pdf` | ICRA 2026 WS Fig. 5 |
 | `assets/fig/plans-position-errors.svg` | `ION_IEEE_PLANS_2025_Full_Paper.pdf`, p. 10, vector crop | PLANS 2025 Fig. 14 |
+| header mark in `index.html` | `brand/logo/hymn-mark-inline.svg`, colours from the CSS tokens | none |
+| `assets/img/favicon.svg`, `assets/img/apple-touch-icon.png` | copies of `brand/logo/hymn-icon.svg` and `brand/logo/apple-touch-icon.png` | none |
+| `assets/img/og-image.png` | `tools/make_og.py` from `brand/logo/hymn-logo.svg` and the site map | none |
 
 ### Facts and numbers
 
@@ -115,3 +133,4 @@ The page deliberately avoids:
 Page text CC BY 4.0, page code MIT (see `LICENSE`). Figures and photos belong to
 their publications and are credited in place. Fonts are under the SIL Open Font
 License 1.1 (`assets/fonts/OFL-*.txt`). Orthophoto: Quelle: GeoSN, dl-de/by-2-0.
+`brand/make_logo.py` is MIT. The HYMN logo may be used unmodified to refer to HYMN.

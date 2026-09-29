@@ -3,6 +3,9 @@ linked_local_projects.txt
 _incoming/
 _src/
 
+# Logo control renderings (python brand/make_logo.py --png)
+brand/logo/png/
+
 # Python
 __pycache__/
 *.pyc

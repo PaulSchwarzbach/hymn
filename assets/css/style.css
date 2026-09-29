@@ -57,11 +57,15 @@
   --paper: #ffffff;
   --paper-ring: rgba(11, 11, 11, 0.08);
 
-  /* technology identity, validated as a 3-slot all-pairs palette */
+  /* technology identity, shared with the logo (brand/make_logo.py):
+     UWB, BLE, WiFi validated as a 3-slot all-pairs palette, 5G NR in
+     TUD CD Violett1, GNSS in the secondary ink. 5G NR violet sits close to
+     UWB blue (dataviz check, 2026-09-29), so every marker keeps its shape
+     and label and never relies on colour alone. */
   --uwb: #2a78d6;
   --ble: #eb6834;
   --wifi: #1baf7a;
-  --nr5g: #52514e;
+  --nr5g: #7369be;
   --gnss: #52514e;
 
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
@@ -90,7 +94,7 @@
     --uwb: #3987e5;
     --ble: #d95926;
     --wifi: #199e70;
-    --nr5g: #c3c2b7;
+    --nr5g: #8c86d2;
     --gnss: #c3c2b7;
   }
 }
@@ -131,7 +135,8 @@ strong { font-weight: 600; }
   border-bottom: 1px solid var(--rule);
 }
 .topnav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.25rem; }
-.brand { font: 700 1.05rem/1 var(--serif); letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; font: 700 1.05rem/1 var(--serif); letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+.brand-mark { width: 2rem; height: 2rem; flex: none; }
 .topnav ul { display: flex; gap: clamp(0.75rem, 2.5vw, 1.75rem); list-style: none; margin: 0; padding: 0; overflow-x: auto; }
 .topnav ul a { color: var(--ink-2); text-decoration: none; font-size: 0.92rem; font-weight: 500; white-space: nowrap; }
 .topnav ul a:hover { color: var(--ink); }
@@ -140,7 +145,7 @@ strong { font-weight: 600; }
 .intro { padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: 1.75rem; }
 .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
 h1 { font: 650 clamp(2.6rem, 1.8rem + 3.6vw, 4rem)/1 var(--serif); letter-spacing: -0.015em; margin-bottom: 1.1rem; }
-h1 .expansion { display: block; font: 400 clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem)/1.3 var(--sans); letter-spacing: 0.01em; color: var(--ink-2); margin-top: 0.6rem; }
+h1 .expansion { display: block; font: 500 clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem)/1.3 var(--serif); letter-spacing: 0.01em; color: var(--ink-2); margin-top: 0.6rem; }
 .lead { font-size: clamp(1.08rem, 1rem + 0.35vw, 1.22rem); line-height: 1.55; max-width: 64ch; color: var(--ink); }
 .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
 .btn {
@@ -188,12 +193,11 @@ figcaption .credit, .credit { color: var(--muted); }
 .k-uwb { fill: var(--uwb); }
 .k-ble { fill: var(--ble); }
 .k-wifi { fill: var(--wifi); }
-.k-nr5g { fill: #2c2c2a; }
+.k-nr5g { fill: var(--nr5g); }
 @media (prefers-color-scheme: dark) {
   .k-hall, .k-out { stroke: #0b0b0b; }
   .k-gate { stroke: #c3c2b7; }
   .k-ts { stroke: #0b0b0b; }
-  .k-nr5g { fill: #898781; }
 }
 
 .map-wrap { position: relative; border-radius: 8px; overflow: hidden; background: #d9d8d2; }
@@ -212,7 +216,7 @@ figcaption .credit, .credit { color: var(--muted); }
 .sm-uwb > * { fill: var(--uwb); }
 .sm-ble > * { fill: var(--ble); }
 .sm-wifi > * { fill: var(--wifi); }
-.sm-nr5g > * { fill: #2c2c2a; }
+.sm-nr5g > * { fill: var(--nr5g); }
 .sm-ts circle { fill: #fff; stroke: #0b0b0b; stroke-width: 1.5px; }
 .sm-ts path { stroke: #0b0b0b; stroke-width: 1.5px; fill: none; }
 .sm-north path { fill: none; stroke: #fff; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; }
@@ -269,7 +273,7 @@ tbody th { font-weight: 600; }
 .t-ble::before { background: var(--ble); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
 .t-wifi::before { background: var(--wifi); border-radius: 2px; }
 .t-nr5g::before { background: var(--nr5g); clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }
-.t-gnss::before { background: transparent; border: 2px solid var(--gnss); border-radius: 50%; width: 9px; height: 9px; }
+.t-gnss::before { border-radius: 50%; }
 .t-ref::before { background: transparent; border: 1.5px solid var(--ink-2); border-radius: 50%; width: 9px; height: 9px; }
 
 .contents dt { font-weight: 600; font-size: 0.95rem; margin-top: 0.65rem; }

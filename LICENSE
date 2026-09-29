@@ -8,8 +8,8 @@ Copyright (c) 2026 Paul Schwarzbach.
 
 Page code
 ---------
-The HTML structure, CSS, JavaScript and the scripts in tools/ are licensed under
-the MIT License:
+The HTML structure, CSS, JavaScript, the scripts in tools/ and brand/make_logo.py
+are licensed under the MIT License:
 
 Copyright (c) 2026 Paul Schwarzbach
 
@@ -40,3 +40,7 @@ Excluded
   Quelle: GeoSN, dl-de/by-2-0 (https://www.govdata.de/dl-de/by-2-0).
 - Fonts in assets/fonts/ are licensed under the SIL Open Font License 1.1
   (see assets/fonts/OFL-*.txt).
+- The HYMN logo in brand/logo/ and its copies (assets/img/favicon.svg,
+  assets/img/apple-touch-icon.png, the mark in the page header) may be used
+  unmodified to refer to HYMN. Modified versions are not licensed.
+  Copyright (c) 2026 Paul Schwarzbach.
