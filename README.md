@@ -58,7 +58,6 @@ drop their cached icon, and rerun `make_og.py`.
 | Event | Change |
 |---|---|
 | New photos | Drop JPEGs into `_incoming/` or `assets/img/`, run `python tools/build_assets.py photos` (originals move to `_src/originals/`), add `<figure class="photo">` blocks to the `env-photos` card next to the site map, with alt text, caption and credit. EXIF (incl. GPS) is stripped. |
-| IPIN preprint online | Replace the `link-pending` span in the IPIN card with the arXiv link and add `eprint`/`doi` to the IPIN BibTeX. |
 | After 7 Oct 2026 | Change the IPIN status line from "talk on" to "presented", later add the IEEE DOI. |
 | Any edit | Update the "Last updated" date in the footer. |
 
@@ -119,6 +118,7 @@ below. Paths are relative to the local project folders.
 | Code DOI = v1.1-ipin2026 | Zenodo record 20058106 |
 | IPIN medians and P95 | `hymn-localization/Paper/sections/conclusion.tex` l. 4, 6, `evaluation.tex` §IV |
 | IPIN venue, session, 7 Oct 2026 | IPIN 2026 conference programme |
+| IPIN preprint arXiv:2609.25835 | arxiv.org/abs/2609.25835 (v1, 2026-09-22) |
 | ICRA UWB P95 0.99 / 3.70 m, WiFi bias 1.17 / 5.94 m | `ICRA/figures/table1_residuals.tex` l. 15–25 |
 | ICRA headline (transition zone) | `ICRA/root.tex` l. 384 |
 | ICRA workshop name, date, place | robotmeetsranging.tech |

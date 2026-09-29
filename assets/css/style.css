@@ -333,7 +333,6 @@ pre {
 .findings li::marker { color: var(--muted); }
 .links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-size: 0.92rem; font-weight: 500; margin: 0; }
 .card-links { margin-top: -0.25rem; }
-.link-pending { color: var(--muted); }
 .card-media { display: grid; gap: 1.1rem; }
 .card:not(.card-split) .card-text { max-width: 78ch; }
 .card-media .table-scroll { margin-bottom: 0; }
